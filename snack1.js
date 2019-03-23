@@ -5,23 +5,20 @@ function boxGenHB(rnd) {
   var template = $("#box-template").html();
   var compiled = Handlebars.compile(template);
 
-  for (var i = 0; i < 30; i++) {
-
     var data = {
 
       data: rnd
     }
-console.log(rnd);
+
     var finalHtml = compiled(data);
 
       if (rnd%2 == 0) {
-  console.log(right , left);
+
         right.append(finalHtml);
       } else {
 
         left.append(finalHtml)
       }
-  }
 
 }
 
@@ -57,8 +54,8 @@ function ajaxRndNum() {
 
 function init() {
 
-  ajaxRndNum();
-  console.log("ciao");
+  var button = $("input");
+  button.click(ajaxRndNum);
 }
 
 
