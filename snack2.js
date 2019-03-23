@@ -50,6 +50,7 @@ for (var i = 0; i < 10; i++) {
     error: function(request, state, error) {
 
       alert("Error");
+      ajaxNames();
     }
 
   });
@@ -63,8 +64,6 @@ function init() {
 
 var myArr = ajaxNames();
 console.log(myArr);
-
-
 }
 
 $(document).ready(init);
