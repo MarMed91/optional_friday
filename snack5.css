@@ -1,0 +1,51 @@
+*{
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content:  center;
+  flex-direction: column;
+}
+
+.box-container {
+width: 75%;
+height: 75%;
+
+margin: auto;
+display: flex;
+justify-content: center;
+
+}
+
+.box {
+  width: 75px;
+  height: 75px;
+
+  border: 1px solid black;
+  margin: 10px;
+
+  text-align: center;
+  line-height: 75px;
+}
+
+
+
+
+
+.red {
+
+  background: red;
+}
+
+.green {
+
+  background: green;
+}
