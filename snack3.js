@@ -1,10 +1,9 @@
-function generateMsg(sent, text) {
-
+function generateMsg(sent, input) {
+console.log("ok");
   var data = {
 
-    text: text
+    text: input
   }
-
 
   if (sent) {
 
@@ -17,26 +16,22 @@ function generateMsg(sent, text) {
   var compiled = Handlebars.compile(template);
   var finalHTML = compiled(data);
 
-
-
-  return finalHTML;
+   var messageContainer = $(".message-container");
+   messageContainer.append(finalHTML);
 }
 
 
 function  messagePrinter(e) {
 
   var me = $(this);
-  var messageContainer = $(".message-container");
+
 
   if (e.which == 13) {
 
     var input = me.val();
     me.val("");
 
-    var message = generateMsg(true, input)
-    
-    messageContainer.append(message);
-
+    generateMsg(true, input)
 
     setTimeout(generateAjaxMsg, 3000);
   }
@@ -52,7 +47,7 @@ function generateAjaxMsg() {
 
       if (data.success) {
 
-        ajaxMsg(data.response);
+        generateMsg(false, data.response);
       }
     },
     error: function (request, state, error) {
@@ -64,19 +59,10 @@ function generateAjaxMsg() {
   });
 }
 
-
-function ajaxMsg(rndSentence) {
-
-  var message = getMessage(false, rndSentence);
-  var messageContainer = $(".message-container");
-  messageContainer.append(message);
-}
-
-
 function init() {
 
   var input = $("#txt");
-  input.keyup(generateMsg);
+  input.keyup(messagePrinter);
 }
 
 $(document).ready(init);
