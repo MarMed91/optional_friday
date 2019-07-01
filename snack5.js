@@ -23,7 +23,6 @@ function boxRandomNum(me) {
            me.addClass("red")
          }
        }
-
   },
     error : function(request, state, error) {
 
@@ -31,11 +30,8 @@ function boxRandomNum(me) {
       console.log("state" , state)
       console.log("error" , error)
     }
-
   });
-  
 }
-
 
 function init() {
 
@@ -56,8 +52,5 @@ function init() {
   //}
   })
 }
-
-
-
 
 $(document).ready(init)

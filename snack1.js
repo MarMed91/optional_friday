@@ -5,23 +5,21 @@ function boxGenHB(rnd) {
   var template = $("#box-template").html();
   var compiled = Handlebars.compile(template);
 
-    var data = {
+  var data = {
 
-      data: rnd
-    }
+    data: rnd
+  }
 
-    var finalHtml = compiled(data);
+  var finalHtml = compiled(data);
 
-      if (rnd%2 == 0) {
+      if (rnd % 2 == 0) {
 
         right.append(finalHtml);
       } else {
 
-        left.append(finalHtml)
+        left.append(finalHtml);
       }
-
 }
-
 
 function ajaxRndNum() {
 
@@ -34,11 +32,8 @@ function ajaxRndNum() {
           if (data.success) {
 
             var num = data.response;
-            console.log(num);
             boxGenHB(num)
-
           }
-
     },
     error: function(request,state,error) {
 
@@ -46,19 +41,13 @@ function ajaxRndNum() {
       console.log("state", state)
       console.log("error", error)
     },
-
   });
-
 }
-
 
 function init() {
 
   var button = $("input");
   button.click(ajaxRndNum);
 }
-
-
-
 
 $(document).ready(init);

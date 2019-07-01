@@ -1,5 +1,5 @@
 function generateMsg(sent, input) {
-console.log("ok");
+
   var data = {
 
     text: input
